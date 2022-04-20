@@ -200,7 +200,7 @@ class Komik extends BaseController
             $namaSampul = $fileSampul->getRandomName();
             // pindahkan gambar
             $fileSampul->move('img', $namaSampul);
-            // hapus file lama
+            // hapus file lama dan periksa apakah yang dihapus gambar default atau bukan
             if ($this->request->getVar('sampulLama') != 'default.jpg') {
                 unlink('img/' . $this->request->getVar('sampulLama'));
                 // unlink('img/' . $this->request->getVar('sampulLama'));
