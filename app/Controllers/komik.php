@@ -186,10 +186,11 @@ class Komik extends BaseController
             return redirect()->to('/komik/edit/' . $this->request->getVar('slug'))->withInput();
         }
         $fileSampul = $this->request->getFile('sampul');
+
         // cek biar gambar sampul lama ga ke hapus
-        if ($this->request->getVar('sampulLama') != 'default.jpg') {
-            unlink('img/' . $this->request->getVar('sampulLama'));
-        }
+        // if ($this->request->getVar('sampulLama') != 'default.jpg') {
+        //     unlink('img/' . $this->request->getVar('sampulLama'));
+        // }
 
         // cek gambar, apakah tetap gambar lama
         if ($fileSampul->getError() == 4) {
@@ -200,7 +201,10 @@ class Komik extends BaseController
             // pindahkan gambar
             $fileSampul->move('img', $namaSampul);
             // hapus file lama
-            unlink('img/' . $this->request->getVar('sampulLama'));
+            if ($this->request->getVar('sampulLama') != 'default.jpg') {
+                unlink('img/' . $this->request->getVar('sampulLama'));
+                // unlink('img/' . $this->request->getVar('sampulLama'));
+            }
         }
 
 
