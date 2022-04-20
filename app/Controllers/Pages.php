@@ -6,6 +6,9 @@ class Pages extends BaseController
 {
     public function index()
     {
+        // test buat random nama dan alamat
+        // $faker = \Faker\Factory::create();
+        // dd($faker->address);
         $data = [
             'title' => 'Home | GilangFauzi'
         ];
