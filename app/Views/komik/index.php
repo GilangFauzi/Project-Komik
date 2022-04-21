@@ -8,8 +8,9 @@
             <h1 class="mt-2">Daftar Komik</h1>
 
             <?php if (session()->getFlashdata('pesan')) : ?>
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <?= session()->getFlashdata('pesan'); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <?php endif; ?>
             <table class="table table-striped">

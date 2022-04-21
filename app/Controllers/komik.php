@@ -207,8 +207,6 @@ class Komik extends BaseController
             }
         }
 
-
-
         $slug = url_title($this->request->getVar('judul'), '-', true);
         $this->komikModel->save([
             'id' => $id,
